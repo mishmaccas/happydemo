@@ -1,0 +1,14 @@
+{
+   "name": "play-ts-cucumber",
+   "version": "1.0.0",
+   "description": "Playwright+Cucumber+Typescript Test Automation Framework for ecommerce site",
+   "devDependencies": {
+      "@cucumber/cucumber": "^12.1.0",
+      "@playwright/test": "^1.54.2",
+      "ts-node": "^10.9.2"
+   },
+    "scripts": {
+        "test": "playwright test",
+        "test:e2e": "playwright test journey.spec.ts --project=chromium --headed"
+    }
+}
