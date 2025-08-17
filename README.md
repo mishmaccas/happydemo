@@ -19,9 +19,16 @@ npx playwright install
 ```
 
 ## Usage
-### Execute e2e journey
+### Execute TS spec
+
 ```bash
 npx playwright test journey.spec.ts --project=chromium --headed
+```
+
+### Execute Cucumber 
+
+```bash
+npx cucumber-js --config cucumber.js
 ```
 
 ## Contributing

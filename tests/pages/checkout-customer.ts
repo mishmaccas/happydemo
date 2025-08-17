@@ -13,6 +13,9 @@ export class CheckoutCustomerPage {
   readonly zone: Locator;
   readonly postcode: Locator;
   readonly continueButton: Locator;
+  readonly cartCheckout: Locator;
+  readonly guestCheckoutButton: Locator;
+  readonly continueCheckout: Locator;
 
   constructor(page: Page) {
     this.page = page;
@@ -22,11 +25,19 @@ export class CheckoutCustomerPage {
     this.telephone = page.locator("#guestFrm_telephone");
     this.address1 = page.locator("#guestFrm_address_1");
     this.address2 = page.locator("#guestFrm_address_2");
-    // this.something = page.locator("div:nth-child(4) > .input-group > .input-group-addon > .required").first();
     this.city = page.locator("#guestFrm_city");
     this.zone = page.locator("#guestFrm_zone_id");
     this.postcode = page.locator("#guestFrm_postcode");
     this.continueButton = page.getByRole("button", { name: " Continue" });
+    this.cartCheckout = page.locator("#cart_checkout1");
+    this.guestCheckoutButton = page.getByText("Guest Checkout");
+    this.continueCheckout = page.getByRole("button", { name: " Continue" });
+  }
+
+  async selectGuestCheckout() {
+    await this.cartCheckout.click();
+    await this.guestCheckoutButton.click();
+    await this.continueCheckout.click();
   }
 
   async fillFirstName(name: string) {
@@ -60,7 +71,6 @@ export class CheckoutCustomerPage {
   }
 
   async fillCity(city: string) {
-    // await this.something.click();
     await this.city.click();
     await this.city.fill(city);
   }
